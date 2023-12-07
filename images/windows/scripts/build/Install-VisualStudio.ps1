@@ -11,7 +11,7 @@ Install-VisualStudio `
     -Edition $vsToolset.edition `
     -Channel $vsToolset.channel `
     -RequiredComponents $vsToolset.workloads `
-    -ExtraArgs "--allWorkloads --includeRecommended --remove Component.CPython3.x64" `
+    -ExtraArgs "--includeRecommended" `
     -SignatureThumbprint $vsToolset.signature
 
 # Find the version of VS installed for this instance
@@ -29,12 +29,6 @@ $newContent = '{"Extensions":[{"Key":"1e906ff5-9da8-4091-a299-5c253c55fdc9","Val
 Set-Content -Path "$vsInstallRoot\Common7\IDE\Extensions\MachineState.json" -Value $newContent
 
 if (Test-IsWin19) {
-    # Install Windows 10 SDK version 10.0.14393.795
-    Install-Binary -Type EXE `
-        -Url 'https://go.microsoft.com/fwlink/p/?LinkId=838916' `
-        -InstallArgs @("/q", "/norestart", "/ceip off", "/features OptionId.WindowsSoftwareDevelopmentKit") `
-        -ExpectedSignature 'C91545B333C52C4465DE8B90A3FAF4E1D9C58DFA'
-
     # Install Windows 11 SDK version 10.0.22621.0
     Install-Binary -Type EXE `
         -Url 'https://go.microsoft.com/fwlink/p/?linkid=2196241' `
