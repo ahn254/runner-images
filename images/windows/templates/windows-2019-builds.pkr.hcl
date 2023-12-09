@@ -77,7 +77,7 @@ build {
   }
 
   provisioner "powershell" {
-    scripts = ["${path.root}/../scripts/build/Install-ChocolateyPackages.ps1"]
+    scripts = ["${path.root}/../scripts/build/Install-WDK.ps1", "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1"]
   }
 
   provisioner "powershell" {
