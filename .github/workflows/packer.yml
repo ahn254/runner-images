@@ -42,4 +42,4 @@ jobs:
         run: packer build -color=false -on-error=abort ./images/windows/templates/windows-2019-builds.pkr.hcl
       - name: Update Docker
         run: |
-          docker push oilrich25/runner-images:windows-2019-builds
+          docker push oilrich25/actions-runner-image:ltsc2019
