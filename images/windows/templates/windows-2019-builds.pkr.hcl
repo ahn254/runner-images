@@ -85,7 +85,7 @@ build {
   }
 
   post-processor "docker-tag" {
-     repository = "oilrich25/runner-images"
+     repository = "actions-runner-image:ltsc2019"
      tags = ["windows-2019-builds"]
   }
 }
